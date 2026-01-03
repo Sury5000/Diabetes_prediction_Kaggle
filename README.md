@@ -1,5 +1,4 @@
 
----
 
 ## Problem Description
 
@@ -16,7 +15,6 @@
 - Key medical predictors such as HbA1c, fasting glucose, postprandial glucose, and diabetes risk score were removed
 - Significant distribution shift from the original synthetic dataset
 
----
 
 ## Methodology
 
@@ -30,7 +28,6 @@ These models were selected because they handle non-linear relationships well and
 
 Initial validation and leaderboard results showed ROC-AUC scores around 0.69–0.70, which was unexpectedly low for a diabetes prediction task. This prompted further investigation into the dataset.
 
----
 
 ### 2. Dataset Investigation
 
@@ -41,7 +38,6 @@ Upon reviewing Kaggle discussions and comparing the competition dataset to the o
 
 This reframed the problem from "predicting diabetes accurately" to "extracting weak signal from intentionally degraded data."
 
----
 
 ### 3. Feature Engineering
 
@@ -56,7 +52,6 @@ Feature importance analysis confirmed that several engineered features contribut
 
 This step improved cross-validation ROC-AUC to approximately 0.72.
 
----
 
 ### 4. Model Optimization
 
@@ -67,7 +62,6 @@ Both CatBoost and LightGBM were tuned further by:
 
 GPU acceleration was explored but limited by runtime and environment constraints. Final models were trained using CPU-based configurations that balanced performance and stability.
 
----
 
 ### 5. Ensembling and Blending
 
@@ -78,7 +72,6 @@ To improve robustness under distribution shift, multiple ensembling strategies w
 
 Rank averaging proved to be the most stable approach, although gains were modest due to high correlation between models.
 
----
 
 ## Results
 
@@ -88,7 +81,6 @@ Rank averaging proved to be the most stable approach, although gains were modest
 
 The gap between local validation and leaderboard performance highlighted the difficulty introduced by distribution shift and synthetic noise.
 
----
 
 ## Key Learnings
 
@@ -98,7 +90,7 @@ The gap between local validation and leaderboard performance highlighted the dif
 - High validation scores do not guarantee leaderboard performance under distribution shift
 - Understanding the data generation process is often more important than model complexity
 
----
+
 
 ## Conclusion
 
